@@ -7,6 +7,7 @@ import (
 	"github.com/filecoin-project/go-state-types/abi"
 	"github.com/filecoin-project/go-state-types/big"
 	"github.com/filecoin-project/go-state-types/cbor"
+	"github.com/filecoin-project/go-state-types/network"
 
 	"github.com/filecoin-project/lotus/chain/actors"
 
@@ -175,9 +176,9 @@ func (a *Actors) Miner(cfg MinerActorCfg) Miner {
 
 	switch a.st.ActorsVersion {
 	case actors.Version0:
-		minerInfo, err = miner0.ConstructMinerInfo(owner.ID, worker.ID, nil, []byte("test"), nil, cfg.SealProofType)
+		minerInfo, err = miner0.ConstructMinerInfo(owner.ID, worker.ID, nil, []byte("test"), nil, cfg.SealProofType, network.Version0)
 	case actors.Version2:
-		minerInfo, err = miner2.ConstructMinerInfo(owner.ID, worker.ID, nil, []byte("test"), nil, cfg.SealProofType)
+		minerInfo, err = miner2.ConstructMinerInfo(owner.ID, worker.ID, nil, []byte("test"), nil, cfg.SealProofType, network.Version4)
 	default:
 		panic("unknown actors version")
 	}
