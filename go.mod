@@ -38,3 +38,7 @@ replace github.com/supranational/blst => ./gen/extern/fil-blst/blst
 replace github.com/filecoin-project/fil-blst => ./gen/extern/fil-blst
 
 replace github.com/filecoin-project/test-vectors/schema => ./schema
+
+replace github.com/filecoin-project/specs-actors => ../specs-actors-v0.9.13
+
+replace github.com/filecoin-project/go-state-types => ../go-state-types
